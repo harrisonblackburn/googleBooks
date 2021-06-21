@@ -6,6 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import SearchBooks from "./pages/SearchBooks"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function App() {
   return (
