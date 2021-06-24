@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from "axios";
-
+import {Card} from 'react-bootstrap';
 import Button from "../components/Button";
 
 
@@ -57,14 +57,20 @@ function SearchBooks() {
 
       </form>
       {result.map(book => (
-                     <div className="card col-lg-3 mx-2 my-2 border border-dark">
-                        <h2 className="card-header fluid">{book.volumeInfo.title}</h2>
-                        <h4 className="card-subtitle mb-2"> {book.volumeInfo.authors[0]}</h4>
-                        <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.title} className="card-img"/>
-                        <p className="card-text">{book.volumeInfo.description}</p>
-                        <a href="#" className="btn btn-secondary btn-sm"> </a>
-                           
-                      </div>
+
+<Card style={{ width: '18rem' }}>
+<Card.Img variant="top" src={book.volumeInfo.imageLinks.thumbnail} />
+<Card.Body>
+  <Card.Title>{book.volumeInfo.title}</Card.Title>
+  <Card.Subtitle className="mb-2 text-muted">{book.volumeInfo.authors[0]}</Card.Subtitle>
+
+  <Card.Text>
+  {book.volumeInfo.description}
+  </Card.Text>
+  <Button variant="primary">Go somewhere</Button>
+</Card.Body>
+</Card>
+                  
 
           
       ))}
