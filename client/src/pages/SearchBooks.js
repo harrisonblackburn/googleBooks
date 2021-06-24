@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from "axios";
-import {Card} from 'react-bootstrap';
+import {Card, CardGroup} from 'react-bootstrap';
 import Button from "../components/Button";
 
 
@@ -58,18 +58,64 @@ function SearchBooks() {
       </form>
       {result.map(book => (
 
-<Card style={{ width: '18rem' }}>
-<Card.Img variant="top" src={book.volumeInfo.imageLinks.thumbnail} />
-<Card.Body>
+<CardGroup>
+<Card>
+  <Card.Img variant="top" src={book.volumeInfo.imageLinks.thumbnail} />
+  <Card.Body>
+    <Card.Title>{book.volumeInfo.title}</Card.Title>
+    <Card.Subtitle>{book.volumeInfo.authors[0]}</Card.Subtitle>
+    <Card.Text>
+    {book.volumeInfo.description}
+    </Card.Text>
+  </Card.Body>
+  <Card.Footer>
+    <small className="text-muted">Last updated 3 mins ago</small>
+  </Card.Footer>
+  <Button variant="primary">Save Book</Button>
+</Card>
+<Card>
+  <Card.Img variant="top" src="holder.js/100px160" />
+  <Card.Body>
+    <Card.Title>Card title</Card.Title>
+    <Card.Text>
+      This card has supporting text below as a natural lead-in to additional
+      content.{' '}
+    </Card.Text>
+  </Card.Body>
+  <Card.Footer>
+    <small className="text-muted">Last updated 3 mins ago</small>
+  </Card.Footer>
+</Card>
+<Card>
+  <Card.Img variant="top" src="holder.js/100px160" />
+  <Card.Body>
+    <Card.Title>Card title</Card.Title>
+    <Card.Text>
+      This is a wider card with supporting text below as a natural lead-in to
+      additional content. This card has even longer content than the first to
+      show that equal height action.
+    </Card.Text>
+  </Card.Body>
+  <Card.Footer>
+    <small className="text-muted">Last updated 3 mins ago</small>
+  </Card.Footer>
+</Card>
+</CardGroup>
+/* <CardGroup>
+  <Card className="card col-lg-3 mx-2 my-2 border border-dark" >
+  <Card.Img variant="top" src={book.volumeInfo.imageLinks.thumbnail} />
+  <Card.Body>
   <Card.Title>{book.volumeInfo.title}</Card.Title>
-  <Card.Subtitle className="mb-2 text-muted">{book.volumeInfo.authors[0]}</Card.Subtitle>
+  <Card.Subtitle>{book.volumeInfo.authors[0]}</Card.Subtitle>
 
   <Card.Text>
   {book.volumeInfo.description}
   </Card.Text>
-  <Button variant="primary">Go somewhere</Button>
+  <Button variant="primary">Save Book</Button>
 </Card.Body>
-</Card>
+  </Card>
+</CardGroup> */
+
                   
 
           
